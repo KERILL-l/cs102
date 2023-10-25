@@ -1,7 +1,6 @@
 import unittest
 import sys
-sys.path.insert(0, '/home/kirill/cs102/src')
-from lab1.calculator import calculate
+from src.lab1.calculator import calculate
 
 class Test(unittest.TestCase):
         def test_one(self):
