@@ -1,7 +1,6 @@
 import unittest
-import sys
-sys.path.insert(0, '/home/kirill/cs102/src')
-from lab3 import sudoku
+
+from src.lab3 import sudoku
 
 
 class SudokuTestCase(unittest.TestCase):
