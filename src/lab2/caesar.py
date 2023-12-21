@@ -10,8 +10,18 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     >>> encrypt_caesar("")
     ''
     """
-    ciphertext = ""
-    # PUT YOUR CODE HERE
+    if shift > 27:
+        return 'Ошибка. Сдвиг больше 27.'
+    ciphertext = ''
+    alphabet_high = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' * 3
+    alphabet_low = alphabet_high.lower()
+    for letter in plaintext:
+        if letter in alphabet_high:
+            ciphertext += alphabet_high[alphabet_high.find(letter) + shift]
+        elif letter in alphabet_low:
+            ciphertext += alphabet_low[alphabet_low.find(letter) + shift]
+        else:
+            ciphertext += letter
     return ciphertext
 
 
@@ -27,6 +37,17 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     >>> decrypt_caesar("")
     ''
     """
-    plaintext = ""
-    # PUT YOUR CODE HERE
+    if shift > 27:
+        return 'Ошибка. Сдвиг больше 27.'
+    plaintext = ''
+    alphabet_high = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    alphabet_low = alphabet_high.lower()
+    for letter in ciphertext:
+        if letter in alphabet_high:
+            plaintext += alphabet_high[alphabet_high.find(letter) - shift]
+        elif letter in alphabet_low:
+            plaintext += alphabet_low[alphabet_low.find(letter) - shift]
+        else:
+            plaintext += letter
     return plaintext
+print(encrypt_caesar(''))
